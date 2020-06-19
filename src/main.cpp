@@ -45,7 +45,8 @@ class MyAdvertisedDeviceCallbacks : public BLEAdvertisedDeviceCallbacks {
    */
   void onResult(BLEAdvertisedDevice advertisedDevice) override {
     if (!advertisedDevice.haveServiceUUID()
-        || advertisedDevice.getServiceDataUUID().toString().substr(0, 9) != "0000fd6f-") {
+        || !advertisedDevice.getServiceUUID().equals(BLEUUID((uint16_t) 0xfd6f))
+      ) {
       return;
     }
 
