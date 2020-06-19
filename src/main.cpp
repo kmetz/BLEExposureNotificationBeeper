@@ -36,7 +36,6 @@ void onNewNotifierFound() {
   digitalWrite(LED_PIN, HIGH);
   tone(BUZZER_PIN, BEEP_NOTE, BEEP_DURATION_MS, 0);
   digitalWrite(LED_PIN, LOW);
-  sleep(BEEP_DURATION_MS);
 }
 
 
