@@ -7,7 +7,7 @@ Notifiers (nearby devices with a warning app) are remembered for 20 minutes so i
 ## Build your own
 ### You need
 1. Any ESP32 board (like a WEMOS D32 or TTGO ESP32, preferrably with a LiPo battery controller).
-2. A 3V piezo buzzer (other buzzer types might also work).
+2. A 3V piezo buzzer (a simple speaker or headphones will also work).
 3. Optionally a LED.
 4. Optionally a small 1-cell LiPo battery.
 5. A nice case :)
@@ -20,7 +20,7 @@ Notifiers (nearby devices with a warning app) are remembered for 20 minutes so i
 | 2         | Buzzer (+)          |
 | GND       | LED (-), Buzzer (-) |
 
-- Pins can easily be changed in code.
+- Pins can easily be changed in code (`src/main.cpp`).
 
 ### Flashing the ESP32
 - Easiest is to upload the [latest binary](https://github.com/kmetz/BLEExposureNotificationBeeper/releases), using [NodeMCU PyFlasher
