@@ -26,4 +26,4 @@ Notifiers (nearby devices with a warning app) are remembered for 20 minutes so i
 - Easiest is to upload the [latest binary](https://github.com/kmetz/BLEExposureNotificationBeeper/releases/latest/download/firmware-esp32dev.bin), using [NodeMCU PyFlasher
 ](https://github.com/marcelstoer/nodemcu-pyflasher).
 - If you have [platform.io](https://platformio.org/platformio-ide) installed, simply open the project and upload.
-  - You also need the [arduino-esp32](https://github.com/espressif/arduino-esp32) platform and the [lbernstone/Tone](https://github.com/lbernstone/Tone) platform. 
+  - You also need the [arduino-esp32](https://github.com/espressif/arduino-esp32) platform and the [lbernstone/Tone](https://github.com/lbernstone/Tone) library. 
