@@ -16,8 +16,8 @@ Notifiers (nearby devices with a warning app) are remembered for 20 minutes so i
 
 | ESP32 pin | goes to             |
 |:----------|:--------------------|
-| 0         | LED (+)             |
-| 2         | Buzzer (+)          |
+| GPIO 0    | LED (+)             |
+| GPIO 2    | Buzzer (+)          |
 | GND       | LED (-), Buzzer (-) |
 
 - Pins can easily be changed in code (`src/main.cpp`).
