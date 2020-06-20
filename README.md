@@ -23,7 +23,28 @@ Notifiers (nearby devices with a warning app) are remembered for 20 minutes so i
 - Pins can easily be changed in code (`src/main.cpp`).
 
 ### Flashing the ESP32
-- Easiest is to upload the [latest binary](https://github.com/kmetz/BLEExposureNotificationBeeper/releases), using [NodeMCU PyFlasher
-](https://github.com/marcelstoer/nodemcu-pyflasher).
-- If you have [platform.io](https://platformio.org/platformio-ide) installed, simply open the project and upload.
-  - You also need the [arduino-esp32](https://github.com/espressif/arduino-esp32) platform and the [lbernstone/Tone](https://github.com/lbernstone/Tone) library. 
+If you don't have [PlatfomIO](https://platformio.org/platformio-ide) installed, you can flash precompiled binaries directly with [esptool.py](https://github.com/espressif/esptool).
+
+#### Using PlatfomIO
+- Simply open the project and upload.
+- Or via command line: `platformio run -t upload`
+- You may need to install the [arduino-esp32](https://github.com/espressif/arduino-esp32) platform and the [lbernstone/Tone](https://github.com/lbernstone/Tone) library first. 
+
+#### Using esptool.py
+- Install esptool.py: `pip install esptool`
+  - On Windows, you might need to [install python](https://www.python.org/downloads/windows/) (2 or 3) first.
+- Download the [latest binaries](https://github.com/kmetz/BLEExposureNotificationBeeper/releases).
+- `cd` into the directory where the (unzipped) binaries are located.
+- Flash using the following command:
+```
+esptool.py \
+--chip esp32 \
+--baud 460800 \
+--before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect \
+0x1000 bootloader_dio_40m.bin \
+0x8000 partitions.bin \
+0xe000 boot_app0.bin \
+0x10000 firmware.bin
+```
+- You may need to define your serial port with something like `--port "/dev/cu.usbserial-0001"` if esptool.py doesn't automatically find it.
+- Some ESP32 boards require you to press (and hold) the flash button until flashing begins.
